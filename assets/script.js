@@ -14,7 +14,9 @@ const slides = [
 	{
 		"image":"./assets/images/slideshow/slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-	}
+	},
+
+
 ]
 
  arrow_left = document.querySelector('.arrow_left');
@@ -43,6 +45,7 @@ for ( let i = 0 ; i< slides.length ; i++){
 /*** Création d'un tableau ***/
 const container = document.querySelector('.dots');
 let tab = Array.from(container.children);	
+
 /***  ajouter la classe dot_selected au premier point ***/
 tab[0].classList.add('dot_selected');
 
