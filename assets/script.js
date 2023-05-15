@@ -20,8 +20,9 @@ const slides = [
  arrow_left = document.querySelector('.arrow_left');
  arrow_right = document.querySelector('.arrow_right');
 
- let click = 0;
+let click = 0;	
 
+/*** fonction pour changer image et texte du carroussel ***/
  function carroussel(){
 	let image =document.querySelector('.banner-img');
 	image.src=slides[click].image;
@@ -30,37 +31,37 @@ const slides = [
 	texte.innerHTML=slides[click].tagLine;
   }; 
  
+/*** creation des points du carroussel ***/
  const element =document.querySelector('.dots');
-	
+
 for ( let i = 0 ; i< slides.length ; i++){
 	const bubble = document.createElement ('div');
 	bubble.classList.add('dot');
 	element.appendChild (bubble);
 };
 
+/*** Création d'un tableau ***/
 const container = document.querySelector('.dots');
 let tab = Array.from(container.children);	
-
+/***  ajouter la classe dot_selected au premier point ***/
 tab[0].classList.add('dot_selected');
 
+/*** ecouteur d'évènement sur la flèche gauche***/
 arrow_left.addEventListener('click' , function(){
 
 tab[click].classList.remove('dot_selected');
-console.log('avant decrémentation',click);
 
  click--;
- console.log('aprés decrémentation',click);
-
+ 
 	if (click < 0){
 		click=slides.length-1;		
 	};
-	console.log('aprés condition',click);
-
 	tab[click].classList.add('dot_selected');
 	
 	carroussel();
 });
 
+/*** ecouteur d'évènement sur la flèche droite ***/
 arrow_right.addEventListener('click' , function(){
 
   tab[click].classList.remove('dot_selected');
